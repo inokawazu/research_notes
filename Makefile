@@ -1,4 +1,4 @@
-TEXFILES=header.tex
+TEXFILES=notes.tex
 
 PDFFILES=$(patsubst %.tex,%.pdf,$(TEXFILES))
 
