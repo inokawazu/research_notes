@@ -1,0 +1,256 @@
+\section{Math Derivations and References}
+
+\subsection{Conventions and Results}
+
+\paragraph{Gauge Theory Objects}
+For a gauge theory of group, $G$, the field strength two-form is written as
+%
+\begin{equation}
+  F = dA + i A\wedge A \equiv dA + i \frac 12 [A\wedge A]
+\end{equation}
+%
+in the physicist's (Hermitian) convention.
+$A$ is the gauge connection.
+
+\paragraph{Derivations}
+The external covariant derivative is of some $r$-form is given as
+%
+\begin{equation}
+  \cd \omega_r := d\omega_r + i [\omega_r \wedge A] = d\omega_r + i \omega_r A  - (-1)^{r} i A \omega_r
+\end{equation}
+%
+The dual derivation is given as $\cd^\dagger := \star^{-1}\cd\star$.
+It has the property of $(\omega_r, \cd \xi_{r-1}) = (\cd^\dagger\omega_r, \xi_{r-1})$.
+For the inner product of $r$-forms $(\cdot, \cdot)$.
+
+\paragraph{Epsilon Tensor}
+The epsilon tensor is used for the volume form, $dV \equiv \frac 1{n!}\varepsilon_I dx^I$ where $n$ is the number of dimensions.
+$\varepsilon_I = N(I)$ where $N(I)$ is the parity of $I$ if $I$ was taken as a permutation.
+The raised index version, $\varepsilon^I$, can be related to lowered index version as $\varepsilon^I = \det(g)\varepsilon_I$.
+This leads to the identity $\frac {1}{r!}\varepsilon^{K_r I} \varepsilon_{K J} = \det g \delta^I_J$.
+$\delta$ is the generalized Kronecker delta.
+
+\paragraph{Hodge Dual} The Hodge dual star operators is defined as 
+%
+\begin{equation}
+  \star \omega_r = {\frac {\sqrt{-g}}{r!(n-r)!}} (\omega_r)_{I} \varepsilon^I_{~J} dx^{J}
+\end{equation}
+%
+$\omega_r$ is an $r$-form.
+
+\paragraph{Implicit Wedge} The wedge product is implicit if not stated otherwise.
+
+\paragraph{Yang-Mills Action}
+We write a free Yang-Mills (YM) action as
+%
+\begin{equation}
+  S_{YM} := -\kappa \int \frac 12\tr F \wedge \star F
+\end{equation}
+%
+The equation of motion is given as
+%
+\begin{equation}
+  \kappa\star\cd \star F = 0
+\end{equation}
+%
+In index form we have
+%
+\begin{equation}
+  \frac 1{\sqrt{-g}} \cd_a (\sqrt{-g} F^{ab}) = 0
+\end{equation}
+%
+$\cd_a$ here is the covariant derivative $\cd_a = \nabla_a + i A_a$
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Derivations}
+
+\paragraph{Hodge Star Inverse} We will derive the Hodge Star inverse.
+%
+\begin{equation}
+  \begin{aligned}
+    \star \star \omega_r &= \star \left( {\frac {r!\sqrt{-g}}{(n-r)!}} (\omega_r)_{I} \varepsilon^I_{~J} dx^{J} \right)\\
+                         &= \left( \frac{\sqrt{-g}}{r!(n-r)!} (\omega_r)_{I} \varepsilon^I_{~J}  \right) \frac{\sqrt{-g}}{r!} \varepsilon^J_{~K} dx^K\\ 
+                         &= \frac{-g}{r!(n-r)!r!} (\omega_r)_{I} \varepsilon^I_{~J}  \varepsilon^J_{~K} dx^K\\ 
+                         &= \frac{-g}{r!(n-r)!r!} (\omega_r)_{I} G^{II'} \varepsilon_{I'J} \varepsilon^{JK'} G_{K'K} dx^K\\ 
+                         &= \frac{-g}{r!(n-r)!r!} (\omega_r)_{I} G^{II'} \left(\frac {(n-r)!}g (-1)^{r(n-r)} \delta_{I'}^{K'}\right) G_{K'K} dx^K\\ 
+                         &= (-1)^{r(n-r) + 1} \frac 1{r!}(\omega_r)_I dx^I\\ 
+  \end{aligned}
+\end{equation}
+%
+So, this semi-involution operations implies the form of the inverse is
+%
+\begin{equation}
+  \star^{-1} \equiv (-1)^{r(n-r) + 1} \star
+\end{equation}
+
+\paragraph{Hodge Star Inner Product}
+The hodge star can be used to create an inner product on $r$-forms, $\omega_r$, $\xi_r$.
+The inner product is defined as
+%
+\begin{equation}
+  (\omega_r, \xi_r) := \int_{\mathcal M} \omega_r\wedge\star\xi_r
+\end{equation}
+%
+\begin{equation}
+  \begin{aligned}
+    \omega_r \star \xi_r &= \frac{\sqrt{-g}}{(n-r)!r!r!} (\omega_r)_K (\xi_r)_I \varepsilon^I_{~J} dx^{KJ}\\
+                            &= \frac{\sqrt{-g}}{(n-r)!r!r!}  ((n-r)!r!) (\omega_r)_K (\xi_r)^K dx^{1\ldots n}\\
+                            &= \sqrt{-g} (\omega_r)_K (\xi_r)^K dx^{1\ldots n}\\
+  \end{aligned}
+\end{equation}
+
+\paragraph{Equation of Motion of Free YM}
+The variation of the free YM action gives the following.
+%
+\begin{equation}
+  \delta S_{YM} = \kappa \int \tr \delta F \wedge \star F
+\end{equation}
+%
+We can isolate the variation $\delta A$.
+%
+\begin{equation}
+  \begin{aligned}
+    \delta S_{YM} &= -\kappa \int \tr \delta F \wedge \star F\\
+                  &= -\kappa \int \tr (d\delta A + i \delta A\wedge A + i A\wedge \delta A) \wedge \star F\\
+  \end{aligned}
+\end{equation}
+
+We can handle these terms one at a time
+%
+\begin{equation}
+  \begin{aligned}
+    \delta S_{YM} &\supset -\kappa \int \tr d\delta A \wedge \star F\\
+                  &= -\kappa \int \tr (d( \delta A \wedge \star F ) + \delta A \wedge d\star F)\\
+                  &= -\kappa \int \tr (\delta A \wedge d\star F)\\
+  \end{aligned}
+\end{equation}
+%
+\begin{equation}
+  \begin{aligned}
+    \delta S_{YM} &\supset -\kappa \int \tr(i \delta A\wedge A + i A\wedge \delta A) \wedge \star F\\
+                  &= -\kappa \int \tr(i \delta A\wedge A \wedge \star F + i A\wedge \delta A  \wedge \star F)\\
+                  &= -\kappa \int \tr(i \delta A\wedge A \wedge \star F + i \delta A  \wedge \star F \wedge A)\\
+                  &= -\kappa \int \tr( \delta A \wedge (i A \wedge \star F + i \star F \wedge A) )\\
+  \end{aligned}
+\end{equation}
+
+Together we have
+
+\begin{equation}
+  \begin{aligned}
+    \delta S_{YM} &= -\kappa \int \tr ( \delta A \wedge (\delta A \wedge d\star F + i A \wedge \star F + i \star F \wedge A) )\\
+                  &= -\kappa \int \tr ( \delta A \wedge \cd ( \star F ) )\\
+                  &= -\kappa \int \tr ( \delta A \wedge \star (\star^{-1}\cd ( \star F )) )\\
+                  &= -\kappa \int \tr ( \delta A \wedge \star (-\star\cd \star F) )\\
+                  &=  \int \tr ( \delta A \wedge \star (\kappa\star\cd \star F) )\\
+  \end{aligned}
+\end{equation}
+
+We can now calculate $\star \cd \star \omega_r$ in index notation.
+
+\begin{equation}
+  \begin{aligned}
+    \star \cd \star \omega_r &= \star \cd \star \frac 1{r!}(\omega_r)_I dx^I\\
+                                    &= \star \cd \left( \frac{\sqrt{-g}}{r!(n-r)!} (\omega_r)_{I} \varepsilon^I_{~J} dx^J \right)\\
+                                    &= \star \left( \frac{1}{r!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  \varepsilon^I_{~J} )  dx^{kJ}\right)\\
+                                    &=  \frac{1}{r!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  \varepsilon^I_{~J} )  ( \varepsilon^{kJ}_{~~~L}\frac{\sqrt{-g}}{ (r-1)! } dx^L )\\
+                                    &=  \frac{\sqrt{-g}}{r!(r-1)!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  \varepsilon^I_{~J} ) \varepsilon^{kJ}_{~~~L} dx^L\\
+                                    &= \frac{\sqrt{-g}}{r!(r-1)!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  G^{II'} ) \varepsilon_{I'J} \varepsilon^{kJ}_{~~~L} dx^L\\
+                                    &= \frac{\sqrt{-g}}{r!(r-1)!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  G^{II'} ) \varepsilon_{I'J} \varepsilon^{kJL'} G_{L'L} dx^L\\
+                                    &= \frac{\sqrt{-g}}{r!(r-1)!(n-r)!} \cd_k ( \sqrt{-g}(\omega_r)_{I}  G^{II'} ) (-1)^{(r-1)(n-r)} \frac{ (n-r)! }{g}\delta^{kL'}_{I'} G_{L'L} dx^L\\
+                                    &= \frac{(-1)^{(r-1)(n-r)+1}}{\sqrt{-g}}\frac{1}{r!(r-1)!}  \delta^{kL'}_{I'} G_{L'L} \cd_k ( \sqrt{-g}(\omega_r)_{I}  G^{II'} )  dx^L\\
+                                    &= \frac{(-1)^{(r-1)(n-r)+1}}{\sqrt{-g}}\frac{1}{(r-1)!} G_{L'L} \cd_k ( \sqrt{-g}(\omega_r)_{I}  G^{IkL'} )  dx^L\\
+                                    &= \frac{(-1)^{(r-1)(n-r)+1}}{\sqrt{-g}}\frac{1}{(r-1)!}  \cd_k ( \sqrt{-g}(\omega_r)^{kL'} G_{L'L})  dx^L\\
+  \end{aligned}
+\end{equation}
+%
+therefore
+%
+\begin{equation}
+  \star \cd \star F = \frac{1}{\sqrt{-g}}  \cd_k ( \sqrt{-g}F^{k}_{~a})dx^a
+\end{equation}
+%
+or
+%
+\begin{equation}
+  \flat (\star \cd \star F) = \frac{1}{\sqrt{-g}}  \cd_k ( \sqrt{-g}F^{ka})\pd_a
+\end{equation}
+
+\paragraph{5D Chern-Simons Action Variation} 
+Now let's calculate the variation of the action.
+%
+\begin{equation}
+  \delta S_\mathrm{CS} = \frac{N_c}{24\pi^2} \int \omega_5(\delta A)
+\end{equation}
+%
+We can handle each term of the $\omega_5$ individually.
+
+\begin{equation}
+  \begin{aligned}
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta (A F^2))\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A F^2 + A \delta F F + A F\delta F)\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A F^2 + A (d\delta A + i \delta A A + i A \delta A) F + A F(d\delta A + i \delta A A + i A \delta A))\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A (F^2 + i (A^2 F + 2 A F A + F A^2 )) +  d\delta A (F A + A F))\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A (F^2 + i (A^2 F + 2 A F A + F A^2 ) + d(F A + A F)))\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A (3 F^2 + i (A^2 F + F A^2 ) ))\\
+  \end{aligned}
+\end{equation}
+
+\begin{equation}
+  \begin{aligned}
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(\delta (\frac i2 A^3 F)\right)\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(\frac i2 ( \delta A A A F +  A \delta A A F + A A \delta A F + A^3 \delta F )\right)\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(\frac i2 ( \delta A A A F +  A \delta A A F + A A \delta A F + A^3 \delta dA F + i A^3 \delta A A + i A^4 \delta A )\right)\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(\frac i2 \delta A ( A^2 F +  A F A  + F A^2  + 2i A^4 + d(A^3)) \right)\\
+  \end{aligned}
+\end{equation}
+
+\begin{equation}
+  \begin{aligned}
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(\delta \left(-\frac 1{10} A^5\right)\right)\\
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr\left(-\frac 1{10} \delta A (5 A^4)\right)\\
+  \end{aligned}
+\end{equation}
+
+$$
+\tr\left(A F^2 + \frac {i}2 A^3 F - \frac 1{10} A^5 \right)
+$$
+
+Adding all the terms together we get
+
+\begin{equation}
+  \begin{aligned}
+    \delta S_\mathrm{CS} &= \frac{N_c}{24\pi^2} \int \tr\left(\delta A \left(
+        3 F^2 +  iA^2 F + iF A^2  + 
+        \frac i2A^2 F +  \frac i2A F A  + \frac i2F A^2  - A^4 + \frac i2 d(A^3) -\frac 12 A^4
+    \right)
+  \right)\\
+    \delta S_\mathrm{CS} &= \frac{N_c}{24\pi^2} \int \tr\left(\delta A \left(
+        3 F^2 +  i\frac 32 A^2 F + i \frac 32 F A^2
+         +  \frac i2A F A + \frac i2 (FA^2-AFA+A^2F -i A^4) -\frac 32 A^4
+    \right)
+  \right)\\
+    \delta S_\mathrm{CS} &= \frac{N_c}{24\pi^2} \int \tr\left(\delta A \left(
+        3 F^2 +  2i(A^2 F + F A^2) - A^4
+    \right)
+  \right)\\
+    \delta S_\mathrm{CS} &= \frac{N_c}{24\pi^2} \int \tr\left(\delta A \wedge \star 
+      (-\star \left( 3 F^2 +  2i(A^2 F + F A^2) - A^4 \right))
+  \right)\\
+  \end{aligned}
+\end{equation}
+
+For Abelian generators\ldots
+%
+\begin{equation}
+  \begin{aligned}
+    \delta S_\mathrm{CS} &\supset \frac{N_c}{24\pi^2} \int \tr(\delta A \wedge \star (-3 \star F^2))\\
+  \end{aligned}
+\end{equation}
+%
+\begin{equation}
+  \begin{aligned}
+    \star F^2 &= \star (\frac 14 F_I F_J dx^{IJ})\\
+    \star F^2 &= \frac {\sqrt{-g}}4 F_I F_J \varepsilon^{IJ}_{~~a} dx^a\\
+  \end{aligned}
+\end{equation}
