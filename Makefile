@@ -9,6 +9,6 @@ all: $(PDFFILES)
 clean:
 	latexmk -C
 
-%.pdf: %.tex
+notes.pdf: notes.tex math_notes/*
 	@echo runding $<
 	latexmk -pdf $<
